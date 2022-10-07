@@ -201,17 +201,17 @@ void rotateBlock() {
 	    	blockState++;
     		
     		// matrix inversion algorithm
-		for (int x = 0; x < (4 / 2); x++) {
-			for (int y = x; y < (4 - x - 1); y++) {
-				int temp = block[x][y];
+		for (int i = 0; i < (4 / 2); i++) {
+			for (int j = i; j < (4 - i - 1); j++) {
+				int temp = block[i][j];
 				// Move values from right to top
-				block[x][y] = block[y][4 - 1 - x];
+				block[i][j] = block[j][4 - 1 - i];
 				// Move values from bottom to right
-				block[y][4 - 1 - x] = block[4 - 1 - x][4 - 1 - y];
+				block[j][4 - 1 - i] = block[4 - 1 - i][4 - 1 - j];
 				// Move values from left to bottom
-				block[4 - 1 - x][4 - 1 - y] = block[4 - 1 - y][x];
+				block[4 - 1 - i][4 - 1 - j] = block[4 - 1 - j][i];
 				// Assign temp to left
-				block[4 - 1 - y][x] = temp;
+				block[4 - 1 - j][i] = temp;
         		}
     		}
 		
